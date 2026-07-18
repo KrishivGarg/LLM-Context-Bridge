@@ -1,5 +1,7 @@
 # LLM Chat Handoff
 
+live demo link : https://youtu.be/V6ZsWtZ4VIE
+
 A Chrome extension that extracts your current chat, compresses it into a compact
 handoff summary, and lets you continue the conversation on a different LLM once
 you've hit your usage limit — without pasting the full transcript.
