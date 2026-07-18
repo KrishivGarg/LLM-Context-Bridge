@@ -85,17 +85,6 @@ separate content script because it only needs to run on demand.
   trigger deliberately, since sniffing every provider's rate-limit UI
   reliably is a much harder and flakier problem than the rest of the project
   combined.
-
-## Suggested next steps (for extending past MVP)
-
-- Add a small **eval script**: feed a handful of long conversations through
-  the compressor, then ask the target LLM a question that depends on early
-  context, and score answers against a "full paste" baseline and a "no
-  context" baseline. This turns "I built an extension" into "I reduced
-  token usage by X% while retaining Y% task continuity on N test
-  conversations" — a much stronger resume line.
-- Add a provider abstraction so Groq (or others) can be swapped in as the
-  compression backend instead of Gemini.
 - Persist extracted transcripts locally (`chrome.storage.local` or
   IndexedDB) so a follow-up question in the new chat can retrieve specific
   older details instead of relying solely on the compressed summary.
