@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "LLM Chat Handoff",
+  "version": "0.1.0",
+  "description": "Extract your current chat, compress it, and hand it off to another LLM when you hit your usage limit.",
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "LLM Chat Handoff"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*"
+      ],
+      "js": ["content-scripts/injector.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

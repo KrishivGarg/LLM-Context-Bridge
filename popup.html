@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>LLM Chat Handoff</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Chat Handoff</h1>
+      <button id="settingsBtn" title="Settings">⚙</button>
+    </header>
+
+    <div id="statusBox" class="status">
+      Click "Extract & Compress" once you've hit your usage limit on this tab.
+    </div>
+
+    <button id="extractBtn" class="primary">Extract &amp; Compress</button>
+
+    <div id="resultArea" class="hidden">
+      <label for="output">Handoff summary</label>
+      <textarea id="output" rows="12" readonly></textarea>
+
+      <div class="row">
+        <button id="copyBtn">Copy</button>
+        <select id="targetSelect">
+          <option value="">Open in…</option>
+          <option value="chatgpt">ChatGPT</option>
+          <option value="claude">Claude</option>
+          <option value="gemini">Gemini</option>
+        </select>
+        <button id="openBtn" disabled>Open &amp; Paste</button>
+      </div>
+
+      <div class="meta" id="metaInfo"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
